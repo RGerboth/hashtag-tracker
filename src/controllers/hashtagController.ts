@@ -7,8 +7,6 @@ module.exports = {
   async trendingTags(req: Request, res: Response, next: NextFunction) {
     try { 
       const trendingHashtags = await Hashtag.findAll({
-        // attributes: ["id", "tag", "count"],
-        // attributes: ["id", [sequelize.fn('max', sequelize.col('count')), 'DESC']],
         order: sequelize.literal('max(count) DESC'),
         group: ["id"],
         limit: 25

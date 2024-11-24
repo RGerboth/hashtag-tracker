@@ -1,11 +1,11 @@
 # Summary
-I considered doing this excercise in a simpler method using in-memory storage and perhaps some flat-file storage. I decided in the end that since I would never write an API using that approach I would use my go-to base API setup. This basic API has been the cornerstone of every production API I've built from scratch going as far back as Spire Digital and as recently as the late-summer of 2024. 
+I considered doing this excercise in a simpler method using in-memory storage and perhaps some flat-file storage, but decided in the end that since I would never write an API using that approach I would use my go-to base API setup. This basic API has been the cornerstone of every production API I've built from scratch going as far back as Spire Digital and as recently as the late-summer of 2024. The actual logic of this application is very simple. 
 
 In the past three years I have built three APIs with this basic sutructure, although two of them had GraphQL (as well as REST) interfaces so the file structure relfected the Resolver/Typedef naming typical to that pattern. 
 
 Utilizing PostgreSQL also made detecting and rejecting duiplicates simpler and more robust. All of these APIs that use PostgreSQL also include Sequelize. I like to use an ORM for enhanced modeling, migration support, abstract query language and database portability. 
 
-Stubbed in are Passport for authentication and jest for testing. Due to the time constraints of this build those are not full built out. 
+Stubbed in are Passport for authentication and jest for testing. Due to the time constraints of this build those are not fully built out. 
 
 This simple API took about 4 hours to complete over two days. 
 
@@ -18,15 +18,15 @@ This simple API took about 4 hours to complete over two days.
 
 * The list of URLs will be provided through a set of `curl` calls. Please use the attached `tweets.sh` script to simulate those requests while you develop. Feel free to test with other similar requests, `tweets.sh` is just a start.
 
-*I plan to up the volume to determine the performance at higher load...*
+*I plan to up the volume to determine the performance at higher load and will update this document with the results.*
 
 * Tweets might repeat themselves, and as any good engineering system, we would like to avoid processing the same tweet over and over again. The algorithm doesn't need to be exact and it can happen in memory.
 
-*I utilized PostgreSQL 'unique' constraints to facilitate the rejection of duplicate tweets. It's not very refined in this simple application but quickly rejects any tweet that is the same as a previous tweet. You can see a summary of the results of the bash testing in the ```log.txt``` file in the root directory.*
+*I utilized PostgreSQL 'unique' constraints to facilitate the rejection of duplicate tweets. It's not very refined in this simple application but quickly rejects any tweet that is the same as a previous one. You can see a summary of the results of the bash testing in the ```log.txt``` file in the root directory.*
 
 * Bonus points if the system is durable, restarting the service would still keep the data loaded up to that point.
 
-*Using PostgreSQl as a permanent data store ensures durability over system restarts.*
+*Using PostgreSQL as a permanent data store ensures durability over system restarts.*
 
 * Bonus points also if the system supported a very large the cardinality of the hashtags, where the naive calculation of all the top hashtags at request-time would not be quick enough.
 
@@ -42,7 +42,7 @@ NOTE: This version requires Node.js and PostgreSQL running locally. There may be
 ## Github repo: ```https://github.com/RGerboth/hashtag-tracker```
 
 1. Install Node.js, most recent version recommended.
-2. Install PostgreSQL.
+2. Install PostgreSQL and create a new database with a name of your choosing. Start PostgreSQL. 
 3. Clone the repo to your local device. (```git@github.com:RGerboth/hashtag-tracker.git```)
 4. CD into the cloned repo directory.
 5. Run ```npm install```

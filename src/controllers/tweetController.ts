@@ -9,7 +9,7 @@ module.exports = {
       const tweet = req.body.tweet
       const newTweet = await Tweet.create({ text: tweet });
       if (newTweet) {
-        handleTags(tweet)
+        handleTags(tweet) // This is an asyncronous function but we are not waiting to see how it ends before responding to the POST request. 
       }
       return ({success: true, message: newTweet})
     } catch (error) {

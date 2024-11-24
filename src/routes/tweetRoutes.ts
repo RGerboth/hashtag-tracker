@@ -4,7 +4,7 @@ import { body, query, validationResult } from 'express-validator';
 const tweetController = require('../controllers/tweetController')
 
 router.post('/tweet', 
-    body('tweet').notEmpty().withMessage("text is a required string"),
+    body('tweet').notEmpty().withMessage("tweet text is a required string"), // validate the request, only one input field. 
     async (req, res) => {
     const errors = validationResult(req);
     if (errors.isEmpty()) {

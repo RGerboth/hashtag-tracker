@@ -3,9 +3,11 @@ I considered doing this excercise in a simpler method using in-memory storage an
 
 In the past three years I have built three APIs with this basic sutructure, although two of them had GraphQL (as well as REST) interfaces so the file structure relfected the Resolver/Typedef naming typical to that pattern. 
 
-Utilizing PostgreSQL also made detecting and rejecting duiplicates simpler and more robust. All of these APIs that use PostgreSQL also include Sequelize. I like to use an ORM for enhanced modeling, migration support, abstract query language and database portability. 
+Utilizing PostgreSQL also made detecting and rejecting duplicates simpler and more robust. All of these APIs that use PostgreSQL also include Sequelize. I like to use an ORM for enhanced modeling, migration support, abstract query language and database portability. Sequelize also has some tools for conducting inquries in multiple, separate operations that can improve performance on complex joins. 
 
-Stubbed in are Passport for authentication and jest for testing. Due to the time constraints of this build those are not fully built out. 
+Stubbed in are Passport for authentication and jest for testing. Due to the time constraints of this build only the Passport user authentication (/login) is active. Nothing has been added for generating tokens, password reset, etc. 
+
+There is one Jest test currently implemented that checks the login function for a success (200) response. 
 
 This simple API took about 4 hours to complete over two days. 
 
@@ -18,7 +20,8 @@ This simple API took about 4 hours to complete over two days.
 
 * The list of URLs will be provided through a set of `curl` calls. Please use the attached `tweets.sh` script to simulate those requests while you develop. Feel free to test with other similar requests, `tweets.sh` is just a start.
 
-*I plan to up the volume to determine the performance at higher load and will update this document with the results.*
+*I plan to up the volume to determine the performance at higher load and will update this document with the results.
+Update: Have tested with 30 tweet posts and 5 hashtag GET requests and still getting sub-second reponse time to the lot.*
 
 * Tweets might repeat themselves, and as any good engineering system, we would like to avoid processing the same tweet over and over again. The algorithm doesn't need to be exact and it can happen in memory.
 

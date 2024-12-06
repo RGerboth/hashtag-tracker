@@ -1,5 +1,5 @@
-import { Model, DataTypes } from 'sequelize';
-import { sequelize } from '.';
+import { Model, DataTypes } from "sequelize";
+import { sequelize } from ".";
 
 class Hashtag extends Model {
   public id!: number;
@@ -23,10 +23,13 @@ Hashtag.init(
     count: {
       type: DataTypes.INTEGER,
     },
+    previousRank: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     sequelize,
-    modelName: 'Hashtag',
+    modelName: "Hashtag",
   }
 );
 

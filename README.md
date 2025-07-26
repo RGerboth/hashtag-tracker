@@ -39,10 +39,33 @@ Update: Have tested with 30 tweet posts and 5 hashtag GET requests and still get
 
 
 
-# Instalation and Usage
+# Installation and Usage
 NOTE: This version requires Node.js and PostgreSQL running locally. There may be a Docker deployed version in a later version. 
 
 ## Github repo: ```https://github.com/RGerboth/hashtag-tracker```
+
+## GitHub Copilot Setup
+
+This project is configured to work optimally with GitHub Copilot in VSCode. To get started:
+
+1. **Install GitHub Copilot**: 
+   - Install the GitHub Copilot extension in VSCode
+   - Install the GitHub Copilot Chat extension for enhanced AI assistance
+   - Sign in with your GitHub account that has Copilot access
+
+2. **VSCode Configuration**: 
+   - The workspace includes recommended extensions (`.vscode/extensions.json`)
+   - Optimized settings for Copilot are pre-configured (`.vscode/settings.json`)
+   - Sensitive files are excluded from Copilot analysis (`.copilotignore`)
+
+3. **Using Copilot with this project**:
+   - Copilot will provide intelligent code suggestions for TypeScript/Node.js
+   - Use `Ctrl+I` (or `Cmd+I` on Mac) to open Copilot Chat
+   - Ask Copilot about the hashtag tracking logic, database models, or API endpoints
+   - Copilot can help with writing tests, refactoring, and adding new features
+   - See [COPILOT_GUIDE.md](./COPILOT_GUIDE.md) for detailed usage instructions and best practices
+
+## Development Setup
 
 1. Install Node.js, most recent version recommended.
 2. Install PostgreSQL and create a new database with a name of your choosing. Start PostgreSQL. 
